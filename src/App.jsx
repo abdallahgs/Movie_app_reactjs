@@ -8,6 +8,7 @@ import Home from "./pages/home"
 import Favorite from "./pages/favorites"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import NavBar from "./components/NavBar"
+import { MovieProvider } from "./contexts/MovieContext"
 
 // this is a default export, so you can name it whatever you want when importing it in another file, but the name should be the same as the function name in this file
 // another way to export a function is to use named export, which is done by adding the export keyword before the function name, like this: export function MovieCard() { ... }
@@ -22,7 +23,7 @@ import NavBar from "./components/NavBar"
   //}
 function App() {
   return(
-    <div className="App">
+    <MovieProvider>
       <NavBar />
     <main className="main-content">
       <Routes>
@@ -30,8 +31,8 @@ function App() {
         <Route path="/favorites" element={<Favorite />} />
       </Routes>
     </main>
-    </div>
-  )
+    </MovieProvider>
+  );
 }
 export default App
 /*    <>
